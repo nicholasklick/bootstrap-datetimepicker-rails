@@ -1146,6 +1146,7 @@
 
   function getTemplate(timeIcon, pickDate, pickTime, is12Hours, showSeconds, collapse) {
     if (pickDate && pickTime) {
+      var linkLabel = (timeIcon.split('icon-').pop() == 'time' ? 'time' : 'day' );
       return (
         '<div class="bootstrap-datetimepicker-widget dropdown-menu">' +
           '<ul>' +
@@ -1154,7 +1155,7 @@
                 DPGlobal.template +
               '</div>' +
             '</li>' +
-            '<li class="picker-switch accordion-toggle"><a><i class="' + timeIcon + '"></i></a></li>' +
+            '<li class="picker-switch accordion-toggle"><a> Click here to set ' + linkLabel + '<i class="' + timeIcon + '"></i></a></li>' +
             '<li' + (collapse ? ' class="collapse"' : '') + '>' +
               '<div class="timepicker">' +
                 TPGlobal.getTemplate(is12Hours, showSeconds) +
